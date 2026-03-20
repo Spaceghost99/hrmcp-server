@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+dist/
+
+# Environment
+.env
+
+# API Keys — never commit these
+hrmcp_sk_*
+sk-ant-*
+sk_live_*
+sk_test_*
+whsec_*
+
+# TypeScript
+*.js.map
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
