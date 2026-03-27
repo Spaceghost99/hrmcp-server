@@ -193,6 +193,94 @@ export const landingPage = `<!DOCTYPE html>
     .step h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
     .step p { font-size: 13px; color: #666; line-height: 1.5; }
 
+    /* ── Developer sections ── */
+    .dev-section {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+
+    .dev-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .dev-section .section-sub {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 0;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .tab-btn {
+      padding: 8px 16px;
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tab-btn.active { color: #7c9eff; border-bottom-color: #7c9eff; }
+    .tab-btn:hover { color: #ccc; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .code-block {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      padding: 24px;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .code-block pre {
+      font-family: "SF Mono", "Fira Code", Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #ccc;
+      white-space: pre;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      color: #888;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .copy-btn:hover { color: #f0f0f0; border-color: #444; }
+
+    .kw  { color: #7c9eff; }   /* keywords / keys */
+    .str { color: #a8e6a3; }   /* strings */
+    .num { color: #ffb86c; }   /* numbers */
+    .cm  { color: #555; }      /* comments */
+
     /* ── Footer ── */
     footer {
       padding: 24px 40px;
@@ -267,6 +355,156 @@ export const landingPage = `<!DOCTYPE html>
 
   </main>
 
+  <!-- ── API quick-start ───────────────────────────────────────────────── -->
+  <section class="dev-section">
+    <h2>API quick-start</h2>
+    <p class="section-sub">One endpoint. Pass your key in the header, get structured JSON back.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="curl">curl</button>
+      <button class="tab-btn" data-tab="python">Python</button>
+      <button class="tab-btn" data-tab="node">Node.js</button>
+      <button class="tab-btn" data-tab="response">Response</button>
+    </div>
+
+    <div id="tab-curl" class="tab-panel active">
+      <div class="code-block">
+        <button class="copy-btn" data-copy="curl">Copy</button>
+        <pre><span class="kw">curl</span> -X POST https://recruitapi.app/score-candidate <span class="cm">\\</span>
+  -H <span class="str">"X-API-Key: hrmcp_sk_..."</span> <span class="cm">\\</span>
+  -H <span class="str">"Content-Type: application/json"</span> <span class="cm">\\</span>
+  -d <span class="str">'{
+    "resume_text": "...",
+    "job_description": "..."
+  }'</span></pre>
+      </div>
+    </div>
+
+    <div id="tab-python" class="tab-panel">
+      <div class="code-block">
+        <button class="copy-btn" data-copy="python">Copy</button>
+        <pre><span class="kw">import</span> requests
+
+response = requests.<span class="kw">post</span>(
+    <span class="str">"https://recruitapi.app/score-candidate"</span>,
+    headers={<span class="str">"X-API-Key"</span>: <span class="str">"hrmcp_sk_..."</span>},
+    json={
+        <span class="str">"resume_text"</span>: <span class="str">"..."</span>,
+        <span class="str">"job_description"</span>: <span class="str">"..."</span>,
+    }
+)
+data = response.json()
+<span class="kw">print</span>(data[<span class="str">"overall_score"</span>])</pre>
+      </div>
+    </div>
+
+    <div id="tab-node" class="tab-panel">
+      <div class="code-block">
+        <button class="copy-btn" data-copy="node">Copy</button>
+        <pre><span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">"https://recruitapi.app/score-candidate"</span>, {
+  method: <span class="str">"POST"</span>,
+  headers: {
+    <span class="str">"X-API-Key"</span>: <span class="str">"hrmcp_sk_..."</span>,
+    <span class="str">"Content-Type"</span>: <span class="str">"application/json"</span>,
+  },
+  body: JSON.stringify({
+    resume_text: <span class="str">"..."</span>,
+    job_description: <span class="str">"..."</span>,
+  }),
+});
+<span class="kw">const</span> data = <span class="kw">await</span> res.json();
+console.log(data.overall_score);</pre>
+      </div>
+    </div>
+
+    <div id="tab-response" class="tab-panel">
+      <div class="code-block">
+        <pre>{
+  <span class="kw">"overall_score"</span>: <span class="num">82</span>,
+  <span class="kw">"dimension_scores"</span>: {
+    <span class="kw">"skills_match"</span>:        <span class="num">88</span>,
+    <span class="kw">"experience"</span>:          <span class="num">85</span>,
+    <span class="kw">"industry_background"</span>: <span class="num">74</span>,
+    <span class="kw">"education"</span>:           <span class="num">70</span>
+  },
+  <span class="kw">"strengths"</span>: [
+    <span class="str">"Five years of Python in production ML pipelines"</span>,
+    <span class="str">"Led team of 8 through platform migration"</span>
+  ],
+  <span class="kw">"gaps"</span>: [
+    <span class="str">"No Kubernetes experience"</span>,
+    <span class="str">"MBA preferred; candidate holds a BS"</span>
+  ],
+  <span class="kw">"recency_window_used"</span>: <span class="num">10</span>,
+  <span class="kw">"model"</span>: <span class="str">"claude-sonnet-4-20250514"</span>,
+  <span class="kw">"warnings"</span>: []
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MCP / agent config ─────────────────────────────────────────────── -->
+  <section class="dev-section">
+    <h2>Use with AI agents</h2>
+    <p class="section-sub">RecruitAPI speaks MCP natively. Add it to any compatible agent framework in seconds.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="claude">Claude Desktop</button>
+      <button class="tab-btn" data-tab="cursor">Cursor</button>
+      <button class="tab-btn" data-tab="http">HTTP (any framework)</button>
+    </div>
+
+    <div id="tab-claude" class="tab-panel active">
+      <div class="code-block">
+        <button class="copy-btn" data-copy="claude">Copy</button>
+        <pre><span class="cm">// claude_desktop_config.json</span>
+{
+  <span class="kw">"mcpServers"</span>: {
+    <span class="kw">"recruitapi"</span>: {
+      <span class="kw">"url"</span>: <span class="str">"https://recruitapi.app"</span>,
+      <span class="kw">"headers"</span>: {
+        <span class="kw">"X-API-Key"</span>: <span class="str">"hrmcp_sk_..."</span>
+      }
+    }
+  }
+}</pre>
+      </div>
+    </div>
+
+    <div id="tab-cursor" class="tab-panel">
+      <div class="code-block">
+        <button class="copy-btn" data-copy="cursor">Copy</button>
+        <pre><span class="cm">// .cursor/mcp.json</span>
+{
+  <span class="kw">"mcpServers"</span>: {
+    <span class="kw">"recruitapi"</span>: {
+      <span class="kw">"url"</span>: <span class="str">"https://recruitapi.app"</span>,
+      <span class="kw">"headers"</span>: {
+        <span class="kw">"X-API-Key"</span>: <span class="str">"hrmcp_sk_..."</span>
+      }
+    }
+  }
+}</pre>
+      </div>
+    </div>
+
+    <div id="tab-http" class="tab-panel">
+      <div class="code-block">
+        <pre><span class="cm"># Any agent that can make HTTP requests can call RecruitAPI directly.
+# No MCP SDK required. Pass your key and POST to the endpoint.</span>
+
+<span class="kw">POST</span> https://recruitapi.app/score-candidate
+<span class="kw">X-API-Key:</span> hrmcp_sk_...
+<span class="kw">Content-Type:</span> application/json
+
+{
+  <span class="kw">"resume_text"</span>: <span class="str">"..."</span>,
+  <span class="kw">"job_description"</span>: <span class="str">"..."</span>
+}</pre>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <span>© 2026 RecruitAPI</span>
     <span>
@@ -276,6 +514,45 @@ export const landingPage = `<!DOCTYPE html>
   </footer>
 
   <script>
+    // ── Tab switching ──────────────────────────────────────────────────────────
+    document.querySelectorAll('.tabs').forEach(function (tabGroup) {
+      tabGroup.addEventListener('click', function (e) {
+        const btn = e.target.closest('.tab-btn');
+        if (!btn) return;
+
+        const section = tabGroup.closest('.dev-section');
+        section.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+        section.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+
+        btn.classList.add('active');
+        const panelId = 'tab-' + btn.dataset.tab;
+        const panel = section.querySelector('#' + panelId);
+        if (panel) panel.classList.add('active');
+      });
+    });
+
+    // ── Copy buttons ───────────────────────────────────────────────────────────
+    const copyTexts = {
+      curl:   'curl -X POST https://recruitapi.app/score-candidate \\\n  -H "X-API-Key: hrmcp_sk_..." \\\n  -H "Content-Type: application/json" \\\n  -d \'{"resume_text": "...", "job_description": "..."}\'',
+      python: 'import requests\n\nresponse = requests.post(\n    "https://recruitapi.app/score-candidate",\n    headers={"X-API-Key": "hrmcp_sk_..."},\n    json={"resume_text": "...", "job_description": "..."}\n)\ndata = response.json()\nprint(data["overall_score"])',
+      node:   'const res = await fetch("https://recruitapi.app/score-candidate", {\n  method: "POST",\n  headers: {\n    "X-API-Key": "hrmcp_sk_...",\n    "Content-Type": "application/json",\n  },\n  body: JSON.stringify({ resume_text: "...", job_description: "..." }),\n});\nconst data = await res.json();\nconsole.log(data.overall_score);',
+      claude: '{\n  "mcpServers": {\n    "recruitapi": {\n      "url": "https://recruitapi.app",\n      "headers": { "X-API-Key": "hrmcp_sk_..." }\n    }\n  }\n}',
+      cursor: '{\n  "mcpServers": {\n    "recruitapi": {\n      "url": "https://recruitapi.app",\n      "headers": { "X-API-Key": "hrmcp_sk_..." }\n    }\n  }\n}',
+    };
+
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const key  = btn.dataset.copy;
+        const text = copyTexts[key];
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = 'Copied!';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+        });
+      });
+    });
+
+    // ── Checkout form ──────────────────────────────────────────────────────────
     document.getElementById('checkout-form').addEventListener('submit', async function (e) {
       e.preventDefault();
 
