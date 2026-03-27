@@ -15,6 +15,7 @@ import { handleWebhook, WebhookSignatureError, createCheckoutSession, stripeIdem
 import { handleScoreCandidate } from './tools/score-candidate/handler';
 import { createError } from './errors/envelope';
 import { ErrorCodes } from './errors/codes';
+import { landingPage } from './landing';
 
 // ─── Middleware instances ─────────────────────────────────────────────────────
 
@@ -59,6 +60,14 @@ function validateIdempotencyKey(value: string): boolean {
 const server = http.createServer(async (req, res) => {
   const startTime = Date.now();
   res.setHeader('Content-Type', 'application/json');
+
+  // ── GET / ───────────────────────────────────────────────────────────────────
+  if (req.method === 'GET' && req.url === '/') {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.writeHead(200);
+    res.end(landingPage);
+    return;
+  }
 
   // ── GET /health ─────────────────────────────────────────────────────────────
   if (req.method === 'GET' && req.url === '/health') {
