@@ -11,7 +11,7 @@ import {
   cacheResponse,
   pruneIdempotencyCache,
 } from './billing/db';
-import { handleWebhook, WebhookSignatureError } from './billing/stripe';
+import { handleWebhook, WebhookSignatureError, createCheckoutSession, stripeIdempotencyKey } from './billing/stripe';
 import { handleScoreCandidate } from './tools/score-candidate/handler';
 import { createError } from './errors/envelope';
 import { ErrorCodes } from './errors/codes';
@@ -100,6 +100,40 @@ const server = http.createServer(async (req, res) => {
           message: err instanceof Error ? err.message : String(err),
         }) + '\n');
       }
+    } finally {
+      logRequest({ req, status, startTime });
+    }
+    return;
+  }
+
+  // ── POST /checkout ──────────────────────────────────────────────────────────
+  if (req.method === 'POST' && req.url === '/checkout') {
+    let status = 200;
+    try {
+      const body = await parseJsonBody(req) as any;
+      const email = body?.email;
+
+      if (!email || typeof email !== 'string' || !email.includes('@')) {
+        status = 400;
+        res.writeHead(400);
+        res.end(JSON.stringify(createError('bad_request', 'A valid email address is required.')));
+        return;
+      }
+
+      const idempotencyKey = stripeIdempotencyKey('checkout', email, Date.now().toString());
+      const session = await createCheckoutSession(email, idempotencyKey);
+
+      res.writeHead(200);
+      res.end(JSON.stringify({ url: session.url, session_id: session.session_id }));
+    } catch (err) {
+      status = 500;
+      res.writeHead(500);
+      res.end(JSON.stringify(createError('internal_error', 'Could not create checkout session.')));
+      process.stderr.write(JSON.stringify({
+        timestamp: new Date().toISOString(),
+        event:     'checkout_error',
+        message:   err instanceof Error ? err.message : String(err),
+      }) + '\n');
     } finally {
       logRequest({ req, status, startTime });
     }
