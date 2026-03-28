@@ -3,7 +3,61 @@ export const landingPage = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RecruitAPI — AI Candidate Scoring</title>
+  <title>RecruitAPI — AI Candidate Scoring API for Recruiters &amp; Agents</title>
+  <meta name="description" content="Score resumes against job descriptions using Claude. Returns structured dimension scores, strengths, and gaps. MCP-native API for AI agents, HR tech builders, and recruiting teams. $5 per 100 scores." />
+  <meta name="keywords" content="candidate scoring API, recruiting API, HR API, resume screening, AI hiring, MCP server, model context protocol, candidate evaluation, hiring automation, AI recruiting, HR tech" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://recruitapi.app" />
+  <meta property="og:title" content="RecruitAPI — AI Candidate Scoring API" />
+  <meta property="og:description" content="Score resumes against job descriptions using Claude. Structured dimension scores, strengths, and gaps. MCP-native. $5 per 100 scores." />
+  <meta property="og:site_name" content="RecruitAPI" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="RecruitAPI — AI Candidate Scoring API" />
+  <meta name="twitter:description" content="Score resumes against job descriptions using Claude. Structured dimension scores, strengths, and gaps. MCP-native. $5 per 100 scores." />
+
+  <!-- Schema: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "RecruitAPI",
+    "url": "https://recruitapi.app",
+    "description": "AI-powered candidate scoring API. Score resumes against job descriptions using Claude. Returns structured dimension scores, strengths, and gaps. MCP-native for AI agent frameworks.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "5.00",
+      "priceCurrency": "USD",
+      "description": "100 candidate scores"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Aaron Garman"
+    },
+    "sameAs": "https://github.com/Spaceghost99/hrmcp-server"
+  }
+  </script>
+
+  <!-- Schema: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "RecruitAPI",
+    "url": "https://recruitapi.app",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "aaron@recruitapi.app"
+    },
+    "sameAs": "https://github.com/Spaceghost99/hrmcp-server"
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -508,8 +562,8 @@ console.log(data.overall_score);</pre>
   <footer>
     <span>© 2026 RecruitAPI</span>
     <span>
-      <a href="https://github.com/Spaceghost99/hrmcp-server">Open source</a>
-      &nbsp;·&nbsp; <a href="https://github.com/Spaceghost99/hrmcp-server/blob/main/LICENSE">Source Available</a>
+      <a href="https://github.com/Spaceghost99/hrmcp-server">Source available</a>
+      &nbsp;·&nbsp; <a href="https://github.com/Spaceghost99/hrmcp-server/blob/main/LICENSE">Elastic License 2.0</a>
     </span>
   </footer>
 

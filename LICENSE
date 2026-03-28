@@ -1,82 +1,84 @@
-Copyright 2026 Aaron Garman. All rights reserved.
+Elastic License 2.0
 
-Source Available License — RecruitAPI (hrmcp-server)
+URL: https://www.elastic.co/licensing/elastic-license
 
-TERMS AND CONDITIONS
+## Acceptance
 
-1. Definitions.
+By using the software, you agree to all of the terms and conditions below.
 
-   "Software" means the hrmcp-server source code, documentation, and
-   associated files available at https://github.com/Spaceghost99/hrmcp-server.
+## Copyright License
 
-   "Self-hosted use" means running the Software on infrastructure you own
-   or control, for your own internal business purposes, and not offering
-   access to the Software or its functionality to third parties as a service.
+The licensor grants you a non-exclusive, royalty-free, worldwide, non-sublicensable,
+non-transferable license to use, copy, distribute, make available, and prepare
+derivative works of the software, in each case subject to the limitations and
+conditions below.
 
-   "Commercial Hosting" means offering access to a running instance of the
-   Software, or a substantially similar service based on the Software, to
-   third parties in exchange for payment, credits, subscriptions, or any
-   other form of compensation.
+## Limitations
 
-   "Author" means Aaron Garman.
+You may not provide the software to third parties as a hosted or managed service,
+where the service provides users with access to any substantial set of the features
+or functionality of the software.
 
-2. Permitted uses.
+You may not move, change, disable, or circumvent the license key functionality in
+the software, and you may not remove or obscure any functionality in the software
+that is protected by the license key.
 
-   Subject to the terms of this License, you are granted a non-exclusive,
-   non-transferable, worldwide license to:
+You may not alter, remove, or obscure any licensing, copyright, or other notices
+of the licensor in the software. Any use of the licensor's trademarks is subject
+to applicable law.
 
-   (a) View, copy, and modify the Software for personal or internal
-       business use;
+## Patents
 
-   (b) Self-host the Software for your own internal business purposes;
+The licensor grants you a license, under any patent claims the licensor can license,
+or becomes able to license, to make, have made, use, import, offer for sale, sell,
+and otherwise transfer the software. This license does not cover any patent claims
+that you cause to be infringed by modifications or additions to the software. If
+you or your company make any written claim that the software infringes or contributes
+to infringement of any patent, your patent license for the software ends immediately.
 
-   (c) Contribute modifications back to the original repository under
-       these same terms.
+## Notices
 
-3. Restrictions.
+You must ensure that anyone who gets a copy of any part of the software from you
+also gets a copy of these terms.
 
-   You may NOT, without a separate written commercial license from the Author:
+If you modify the software, you must include in any modified copies of the software
+prominent notices stating that you have modified the software.
 
-   (a) Offer Commercial Hosting of the Software or any substantially
-       similar derivative — meaning you may not run a hosted API, SaaS
-       product, or managed service based on this Software and charge
-       third parties for access to it;
+## No Other Rights
 
-   (b) Sublicense, sell, or transfer the Software or any derivative work
-       to a third party for the purpose of Commercial Hosting;
+These terms do not imply any licenses other than those expressly granted in these terms.
 
-   (c) Remove or alter this license notice or any copyright notices in
-       the Software.
+## Termination
 
-4. Commercial licensing.
+If you use the software in violation of these terms, such use is not licensed, and
+your licenses will automatically terminate. If the licensor provides you with a
+notice of your violation, and you cease all violation of this license no later than
+30 days after you receive that notice, your licenses will be reinstated retroactively.
+However, if you violate these terms after such reinstatement, any additional violation
+of these terms will cause your licenses to terminate automatically and permanently.
 
-   If you wish to offer a hosted service based on this Software, contact
-   the Author to obtain a commercial license:
+## No Liability
 
-   aaron@recruitapi.app
+*As far as the law allows, the software comes as is, without any warranty or
+condition, and the licensor will not be liable to you for any damages arising out
+of these terms or the use or nature of the software, under any kind of legal claim.*
 
-5. Contributions.
+## Definitions
 
-   By submitting a pull request or contribution to this repository, you
-   grant the Author a perpetual, worldwide, non-exclusive, royalty-free
-   license to use, reproduce, modify, and distribute your contribution
-   as part of the Software under any license the Author chooses, including
-   future versions of this License or a commercial license.
+The **licensor** is the entity offering these terms, and the **software** is the
+software the licensor makes available under these terms, including any portion of it.
 
-6. Disclaimer of warranty.
+**you** refers to the individual or entity agreeing to these terms.
 
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
-   IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
-   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING
-   FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-   DEALINGS IN THE SOFTWARE.
+**your company** is any legal entity, sole proprietorship, or other kind of
+organization that you work for, plus all organizations that have control over, are
+under the control of, or are under common control with that organization. **control**
+means ownership of substantially all the assets of an entity, or the power to direct
+its management and legal affairs.
 
-7. Termination.
+**your licenses** are all the licenses granted to you for the software under these terms.
 
-   This License and the rights granted hereunder will terminate automatically
-   if you fail to comply with any of its terms. Upon termination, you must
-   destroy all copies of the Software in your possession.
+**use** includes all the ways any person or entity can interact with the software
+subject to these terms.
 
-END OF TERMS AND CONDITIONS
+**trademark** means trademarks, service marks, and similar rights.

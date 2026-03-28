@@ -1,6 +1,6 @@
 # hrmcp-server
 
-An open-source MCP server for HR and recruiting workflows. Scores candidates against job descriptions using Claude, returns structured dimension scores, strengths, and gaps. Any agent framework that speaks MCP can call it natively.
+A source-available MCP server for HR and recruiting workflows. Scores candidates against job descriptions using Claude, returns structured dimension scores, strengths, and gaps. Any agent framework that speaks MCP can call it natively.
 
 **Hosted API** — use it without running anything: [hrmcp.dev](https://hrmcp.dev)
 **Self-host** — deploy to Railway in under 15 minutes (see below)
@@ -275,10 +275,10 @@ src/
 
 ## Alternatives
 
-Other hosted candidate-scoring options exist. hrmcp-server is open-source, self-hostable, and speaks MCP natively — no wrapper required for agent frameworks that support the protocol.
+Other hosted candidate-scoring options exist. hrmcp-server is source-available, self-hostable, and speaks MCP natively — no wrapper required for agent frameworks that support the protocol.
 
 ---
 
 ## License
 
-Source Available. See [LICENSE](LICENSE). Self-hosting for internal use is free. Commercial hosting (offering a hosted API or SaaS based on this software to third parties) requires a separate written license — contact aaron@recruitapi.app.
+Licensed under the [Elastic License 2.0](LICENSE). Free to use, self-host, and modify. You may not offer the software to third parties as a hosted or managed service. For commercial hosting inquiries contact aaron@recruitapi.app.

@@ -1,7 +1,7 @@
 {
   "name": "hrmcp-server",
   "version": "1.0.0",
-  "description": "An open-source MCP server for HR and recruiting workflows",
+  "description": "A source-available MCP server for HR and recruiting workflows",
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
