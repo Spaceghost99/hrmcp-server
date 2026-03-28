@@ -79,6 +79,7 @@ export async function createCheckoutSession(
     {
       mode: 'payment',
       payment_method_types: ['card'],
+      customer_creation: 'always',
       customer_email: email,
       line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${config.appUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
