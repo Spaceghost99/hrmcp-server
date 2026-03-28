@@ -509,7 +509,7 @@ console.log(data.overall_score);</pre>
     <span>© 2026 RecruitAPI</span>
     <span>
       <a href="https://github.com/Spaceghost99/hrmcp-server">Open source</a>
-      &nbsp;·&nbsp; Apache 2.0
+      &nbsp;·&nbsp; <a href="https://github.com/Spaceghost99/hrmcp-server/blob/main/LICENSE">Source Available</a>
     </span>
   </footer>
 

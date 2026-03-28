@@ -281,4 +281,4 @@ Other hosted candidate-scoring options exist. hrmcp-server is open-source, self-
 
 ## License
 
-Apache 2.0. See [LICENSE](LICENSE).
+Source Available. See [LICENSE](LICENSE). Self-hosting for internal use is free. Commercial hosting (offering a hosted API or SaaS based on this software to third parties) requires a separate written license — contact aaron@recruitapi.app.
