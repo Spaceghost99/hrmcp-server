@@ -115,6 +115,57 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // ── POST /admin/issue-key ────────────────────────────────────────────────────
+  if (req.method === 'POST' && req.url === '/admin/issue-key') {
+    let status = 200;
+    try {
+      if (!config.adminSecret) {
+        status = 404;
+        res.writeHead(404);
+        res.end(JSON.stringify(createError('not_found', 'The requested endpoint does not exist.')));
+        return;
+      }
+
+      const secret = req.headers['x-admin-secret'];
+      if (!secret || secret !== config.adminSecret) {
+        status = 401;
+        res.writeHead(401);
+        res.end(JSON.stringify(createError('unauthorized', 'Invalid admin secret.')));
+        return;
+      }
+
+      const body = await parseJsonBody(req) as any;
+      const email   = body?.email   ?? 'admin@test.local';
+      const credits = body?.credits ?? 10;
+
+      const { createCustomer, createApiKey } = await import('./billing/db');
+      const customer = await createCustomer(email);
+      const expireAt = new Date();
+      expireAt.setDate(expireAt.getDate() + config.creditsExpiryDays);
+      const newKey = await createApiKey(customer.id, credits, expireAt);
+
+      res.writeHead(200);
+      res.end(JSON.stringify({
+        api_key:          newKey.plaintext,
+        customer_id:      customer.id,
+        credits_balance:  newKey.record.credits_balance,
+        credits_expire_at: newKey.record.credits_expire_at,
+      }));
+    } catch (err) {
+      status = 500;
+      res.writeHead(500);
+      res.end(JSON.stringify(createError('internal_error', 'Could not issue key.')));
+      process.stderr.write(JSON.stringify({
+        timestamp: new Date().toISOString(),
+        event:     'admin_error',
+        message:   err instanceof Error ? err.message : String(err),
+      }) + '\n');
+    } finally {
+      logRequest({ req, status, startTime });
+    }
+    return;
+  }
+
   // ── POST /checkout ──────────────────────────────────────────────────────────
   if (req.method === 'POST' && req.url === '/checkout') {
     let status = 200;

@@ -66,4 +66,7 @@ export const config = {
 
   // App
   appUrl: optional('APP_URL', 'http://localhost:3000'),
+
+  // Admin
+  adminSecret: optional('ADMIN_SECRET', ''),
 };
