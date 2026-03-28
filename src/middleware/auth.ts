@@ -108,7 +108,7 @@ export function createAuthMiddleware(lookupKey: KeyLookupFn) {
 
     if (!record) {
       sendUnauthorized(res, 'API key not found or has been revoked.', {
-        hint: 'Purchase a key at https://hrmcp.dev or contact support.',
+        hint: 'Purchase a key at https://recruitapi.app or contact support.',
       });
       return null;
     }

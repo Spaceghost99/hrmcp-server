@@ -2,7 +2,7 @@
 
 A source-available MCP server for HR and recruiting workflows. Scores candidates against job descriptions using Claude, returns structured dimension scores, strengths, and gaps. Any agent framework that speaks MCP can call it natively.
 
-**Hosted API** — use it without running anything: [hrmcp.dev](https://hrmcp.dev)
+**Hosted API** — use it without running anything: [recruitapi.app](https://recruitapi.app)
 **Self-host** — deploy to Railway in under 15 minutes (see below)
 
 ---
@@ -95,7 +95,7 @@ X-API-Key: hrmcp_sk_...
 Authorization: Bearer hrmcp_sk_...
 ```
 
-Keys are issued after a credit purchase. Get one at [hrmcp.dev/billing](https://hrmcp.dev/billing).
+Keys are issued after a credit purchase. Get one at [hrmcp-server-production.up.railway.app/billing](https://hrmcp-server-production.up.railway.app/billing).
 
 ---
 
